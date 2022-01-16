@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  builder:
+    #image: maven:3.8.4-eclipse-temurin-17
+    container_name: builder_01
+    volumes:
+      - /home/revilo/Schreibtisch/Neuer Ordner (1)/test/:/app
+      - /home/revilo/.m2/:/root/.m2/
+      - /var/run/docker.sock:/var/run/docker.sock
+    build: ./builder/
+    entrypoint: bash -c "mvn --version"
